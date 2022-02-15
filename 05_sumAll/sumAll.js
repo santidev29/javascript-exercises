@@ -1,27 +1,19 @@
-const sumAll = function(x, y) {
+const sumAll = function(min, max) {
 
-        const inicial = x;
-        const final = y;
-        let acum = 0
+    if (!Number.isInteger(min) || !Number.isInteger(max)) return "ERROR";
+    if (min < 0 || max < 0) return "ERROR";
+    if (min > max) {
+        const temp = min;
+        min = max;
+        max = temp;
+  }
+  let sum = 0;
+  for (let i = min; i < max + 1; i++) {
+    sum += i;
+  }
+  return sum;
 
-        if (x < y) {
-
-            for (let i = x ; i <= y; i++) {
-            acum += i;
-            }
-
-        } else {
-
-            for (let i = y ; i <= x; i++) {
-            acum += i;
-            }
-            
-            return acum;
-
-        }
-
-};
-
-
+    };  
+    
 // Do not edit below this line
 module.exports = sumAll;
